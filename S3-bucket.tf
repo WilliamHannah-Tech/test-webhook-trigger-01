@@ -15,13 +15,13 @@ resource "aws_s3_object" "Armageddon_passed" {
   etag         = filemd5("./bucket-images/Armageddon-passed.png")
 }
 
-# resource "aws_s3_object" "Webhook_run" {
-#   bucket       = aws_s3_bucket.buckets_2_bentleys.id
-#   key          = "Webhook-run.txt"
-#   source       = "./bucket-images/Webhook-run.txt"
-#   content_type = "text/plain"
-#   etag         = filemd5("./bucket-images/Webhook-run.txt")
-# }
+resource "aws_s3_object" "Webhook_run" {
+  bucket       = aws_s3_bucket.buckets_2_bentleys.id
+  key          = "Webhook-Run.png"
+  source       = "./bucket-images/Webhook-Run.png"
+  content_type = "image/png"
+  etag         = filemd5("./bucket-images/Webhook-Run.png")
+}
 
 resource "aws_s3_object" "Armageddon_link" {
   bucket       = aws_s3_bucket.buckets_2_bentleys.id
@@ -31,29 +31,29 @@ resource "aws_s3_object" "Armageddon_link" {
   etag         = filemd5("./bucket-images/Armageddon-link.txt")
 }
 
-# resource "aws_s3_object" "Webhook_Successful_Build" {
-#   bucket       = aws_s3_bucket.buckets_2_bentleys.id
-#   key          = "Webhook-Successful-Build.png"
-#   source       = "./bucket-images/Webhook-Successful-Build.png"
-#   content_type = "image/png"
-#   etag         = filemd5("./bucket-images/Webhook-Successful-Build.png")
-# }
-
-
-resource "aws_s3_object" "Successful_pipeline2" {
+resource "aws_s3_object" "Webhook_Successful_Build" {
   bucket       = aws_s3_bucket.buckets_2_bentleys.id
-  key          = "Successful-pipeline2.png"
-  source       = "./bucket-images/Successful-pipeline2.png"
-  content_type = "image/jpeg"
-  etag         = filemd5("./bucket-images/Successful-pipeline2.png")
+  key          = "Webhook-Successful-Build.png"
+  source       = "./bucket-images/Webhook-Successful-Build.png"
+  content_type = "image/png"
+  etag         = filemd5("./bucket-images/Webhook-Successful-Build.png")
 }
 
-resource "aws_s3_object" "Successful_pipeline1" {
+
+resource "aws_s3_object" "Pipeline_Overview" {
   bucket       = aws_s3_bucket.buckets_2_bentleys.id
-  key          = "Successful-pipeline1.png"
-  source       = "./bucket-images/Successful-pipeline1.png"
+  key          = "Pipeline-Overview.png"
+  source       = "./bucket-images/Pipeline-Overview.png"
   content_type = "image/jpeg"
-  etag         = filemd5("./bucket-images/Successful-pipeline1.png")
+  etag         = filemd5("./bucket-images/Pipeline-Overview.png")
+}
+
+resource "aws_s3_object" "Jenkins_EC2" {
+  bucket       = aws_s3_bucket.buckets_2_bentleys.id
+  key          = "Jenkins-EC2.png"
+  source       = "./bucket-images/Jenkins-EC2.png"
+  content_type = "image/jpeg"
+  etag         = filemd5("./bucket-images/Jenkins-EC2.png")
 }
 
 # resource "aws_s3_object" "S3-BucketContents" {
