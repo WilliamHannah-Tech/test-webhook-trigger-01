@@ -56,10 +56,10 @@ resource "aws_s3_object" "Jenkins_EC2" {
   etag         = filemd5("./bucket-images/Jenkins-EC2.png")
 }
 
-# resource "aws_s3_object" "S3-BucketContents" {
-#   bucket       = aws_s3_bucket.buckets_2_bentleys.id
-#   key          = "S3-BucketContents.png"
-#   source       = "./bucket-images/S3-BucketContents.png"
-#   content_type = "image/jpeg"
-#   etag         = filemd5("./bucket-images/S3-BucketContents.png")
-# }
+resource "aws_s3_object" "S3_Bucket_Contents" {
+  bucket       = aws_s3_bucket.buckets_2_bentleys.id
+  key          = "S3-Bucket-Contents.png"
+  source       = "./bucket-images/S3-Bucket-Contents.png"
+  content_type = "image/jpeg"
+  etag         = filemd5("./bucket-images/S3-Bucket-Contents.png")
+}
