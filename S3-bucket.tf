@@ -7,6 +7,32 @@ resource "aws_s3_bucket" "buckets_2_bentleys" {
   }
 }
 
+resource "aws_s3_bucket_public_access_block" "buckets_2_bentleys_public" {
+  bucket = aws_s3_bucket.buckets_2_bentleys.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_policy" "buckets_2_bentleys_policy" {
+  bucket = aws_s3_bucket.buckets_2_bentleys.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "PublicReadGetObject"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource  = "${aws_s3_bucket.buckets_2_bentleys.arn}/*"
+      }
+    ]
+  })
+}
+
 resource "aws_s3_object" "Armageddon_passed" {
   bucket       = aws_s3_bucket.buckets_2_bentleys.id
   key          = "Armageddon-passed.png"
