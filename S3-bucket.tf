@@ -1,8 +1,8 @@
 resource "aws_s3_bucket" "buckets_2_bentleys" {
-    bucket        = "buckets-2-bentleys"
-    force_destroy = true
+  bucket        = "buckets-2-bentleys"
+  force_destroy = true
 
-     tags = {
+  tags = {
     Name = "jenkins-Bucket"
   }
 }
@@ -18,6 +18,8 @@ resource "aws_s3_bucket_public_access_block" "buckets_2_bentleys_public" {
 
 resource "aws_s3_bucket_policy" "buckets_2_bentleys_policy" {
   bucket = aws_s3_bucket.buckets_2_bentleys.id
+
+  depends_on = [aws_s3_bucket_public_access_block.buckets_2_bentleys_public]
 
   policy = jsonencode({
     Version = "2012-10-17"
